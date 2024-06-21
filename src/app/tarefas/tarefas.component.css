@@ -1,0 +1,8 @@
+.container{
+  max-width: 80%;
+  background-color: rgb(193, 178, 178);
+  display: flex;
+  justify-content:cen ;
+  align-items:end;
+    
+}   
