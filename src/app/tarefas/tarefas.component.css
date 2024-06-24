@@ -1,8 +1,23 @@
+*{
+  padding: 0%;
+  margin: 0%;
+}
+.page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .container{
   max-width: 80%;
-  background-color: rgb(193, 178, 178);
-  display: flex;
-  justify-content:cen ;
-  align-items:end;
-    
+  background-color:rgb(35,98,204);
+  padding: 5%;
+  
 }   
+.input{
+ margin-right: 20px;
+}
+.titulo{
+  padding: 20px;
+}
