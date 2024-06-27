@@ -1,21 +1,44 @@
 <div class="page">
-  <div class="container">
-    <div class="titulo">TODO LIST</div>
-
-    <input class="input" type="text" placeholder="Adicione sua atividade" [(ngModel)]="inputValue">
-    <button class="button" (click)="addTask()">add task</button>
-
+  <div class="p-3 mb-2 bg-primary text-white">
+    <div class="header">
+      <div class="titulo">TODO LIST</div>
+    </div>
+    <div class="input-container">
+      <input
+        class="input"
+        type="text"
+        placeholder="Adicione sua atividade"
+        [(ngModel)]="inputValue"
+      />
+      <button class="btn btn-light" (click)="addTask()">add task</button>
+    </div>
     <div class="atividades">
       <table class="table">
         <thead>
-          <tr *ngFor="let task of tasks ">
-            <th>
-            <span>{{ task }}</span>  
-              <i class="bi bi-trash" (click)="removeTask(task)"></i>
-            
-            </th>            
-          </tr>   
+          <tr>
+            <th>#</th>
+            <th>Atividades</th>
+            <th></th>
+          </tr>
         </thead>
+        <tbody>
+          <tr class="tr" *ngFor="let task of $task">
+            <td>
+              {{ task.nome }}
+            </td>
+            <td>
+              {{ task.id }}
+            </td>
+            <td>
+              <span class="float-right">
+                <i class="bi bi-trash" (click)="removeTask(task)"></i
+              ></span>
+              <span class="float-right">
+                <i class="bi bi-pen-fill"></i>
+              </span>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
