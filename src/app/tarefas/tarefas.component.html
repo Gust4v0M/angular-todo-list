@@ -1,7 +1,7 @@
 <div class="page">
-  <div class="p-3 mb-2 bg-primary text-white">
+  <div class="card -bg-light mb-3 position-relative">
     <div class="header">
-      <div class="titulo">TODO LIST</div>
+      <div class="titulo position-absolute top-0 start-50 translate-middle-x fs-4 text-secondary-emphasis">TO-DO LIST</div>
     </div>
     <div class="input-container">
       <input
@@ -12,30 +12,24 @@
       />
       <button class="btn btn-light" (click)="addTask()">add task</button>
     </div>
-    <div class="atividades">
+    <div class="atividades ">
       <table class="table">
         <thead>
           <tr>
-            <th>#</th>
             <th>Atividades</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr class="tr" *ngFor="let task of $task">
-            <td>
-              {{ task.nome }}
-            </td>
-            <td>
-              {{ task.id }}
-            </td>
-            <td>
-              <span class="float-right">
-                <i class="bi bi-trash" (click)="removeTask(task)"></i
-              ></span>
-              <span class="float-right">
-                <i class="bi bi-pen-fill"></i>
-              </span>
+          <tr class="tr" *ngFor="let task of tasks">
+            <td>{{ task }}</td>
+            <td class="actions">
+              <i class="bi bi-trash" (click)="removeTask(task)"></i>
+              <i class="bi bi-pen-fill ml-2" routerLink="/edit"  
+              [(ngModel)]="valorAtual"
+              (click)="taskEditavel()"
+              
+              ></i>
             </td>
           </tr>
         </tbody>

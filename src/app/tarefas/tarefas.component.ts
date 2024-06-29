@@ -1,7 +1,5 @@
 import { Component,  } from '@angular/core';
 import { FormsModule,  } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { task } from './tarefas';
 
 @Component({
   selector: 'app-tarefas',
@@ -10,20 +8,28 @@ import { task } from './tarefas';
 })
 export class TarefasComponent {
 inputValue: string ='';
-$task! : Observable<task>;
-trashIcon = '../assets/icons/image.png'
+tasks: string[] = [];
+valorAtual!: any;
+
 constructor(private forms: FormsModule){
 
 }
 
 addTask(){
-  this.$task?.push(this.inputValue);
+  this.tasks.push(this.inputValue);
 }
 
 removeTask(task: string){
   const index = this.tasks.indexOf(task)
  if(index > -1){
-  this.$task?.splice(index, 1)
+  this.tasks.splice(index, 1)
  }
+}
+
+
+taskEditavel(){
+  if(this.valorAtual ==! null && this.valorAtual > [this.tasks.length]){//função usada para pegar o valor do array que estamos utilizando
+      this.valorAtual = this.tasks[this.valorAtual]
+  }
 }
 }
