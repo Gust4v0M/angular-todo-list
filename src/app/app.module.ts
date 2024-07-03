@@ -19,7 +19,8 @@ import { RouterLink } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [
     provideClientHydration()
