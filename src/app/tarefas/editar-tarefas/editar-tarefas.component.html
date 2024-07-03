@@ -1,1 +1,22 @@
- 
+<div class="page">
+  <div class="card -bg-light mb-3 position-relative">
+    <div class="header">
+      <div
+        class="titulo position-absolute top-0 start-50 translate-middle-x fs-4 text-secondary-emphasis"
+      >
+        Editar atividade
+      </div>
+    </div>
+    <div class="input-container">
+      <input 
+      class="input" 
+      type="text"
+      placeholder="Adicione sua atividade"
+      #input
+      />
+      <button class="btn btn-light" (click)="setValue()">Atualizar</button>
+    </div>
+
+    <p >{{ task }}</p>
+  </div>
+</div>

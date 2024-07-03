@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule,  } from '@angular/forms';
+import { TarefasService } from './tarefas.service';
 
 @Component({
   selector: 'app-tarefas',
@@ -12,7 +13,9 @@ tasks: string[] = [];
 valorAtual!: any;
 valorFalse = false;
 
-constructor(private forms: FormsModule){
+constructor(private forms: FormsModule,
+            private tarefasService: TarefasService
+){
 
 }
 
@@ -32,10 +35,9 @@ removeTask(task: string){
 }
 
 
-// taskEditavel(task: string){
-// this.valorAtual = task
- 
-// }
+taskEditavel(task: string){
+this.tarefasService.setTask(task) 
+}
 }
 
 

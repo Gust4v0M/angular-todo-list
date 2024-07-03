@@ -1,3 +1,4 @@
+<!-- tarefas.component.html -->
 <div class="page">
   <div class="card -bg-light mb-3 position-relative">
     <div class="header">
@@ -12,7 +13,7 @@
       />
       <button class="btn btn-light" (click)="addTask()">add task</button>
     </div>
-    <div class="atividades ">
+    <div class="atividades">
       <table class="table">
         <thead>
           <tr>
@@ -25,16 +26,11 @@
             <td>{{ task }}</td>
             <td class="actions">
               <i class="bi bi-trash" (click)="removeTask(task)"></i>
-              <i class="bi bi-pen-fill ml-2" routerLink="/edit"  
-        
-           
-              
-              ></i>
+              <i class="bi bi-pen-fill ml-2" (click)="taskEditavel(task)" [routerLink]="['/edit']"></i>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-   <span><app-editar-tarefas *ngIf="valorFalse" [task]="inputValue"></app-editar-tarefas></span> 
   </div>
 </div>
