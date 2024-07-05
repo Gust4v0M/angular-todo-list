@@ -10,10 +10,9 @@ export class EditarTarefasComponent implements OnInit {
   @Input() task!: string;
   @ViewChild('input') input!: ElementRef;
 
-
   constructor(private tarefasService: TarefasService){ }
  ngOnInit() {
-    this.task = this.tarefasService.getTask();
+   // this.task = this.tarefasService.getTask();
   }
 
   ngAfterViewInit() {
@@ -22,9 +21,14 @@ export class EditarTarefasComponent implements OnInit {
     }
   }
 
-  setValue() {
+  atualizar() {
     const input: HTMLInputElement = this.input.nativeElement;
+
+   // this.task = this.tarefasService.getTask();
+    
     input.value = this.task;
+
+
   }
 
   }

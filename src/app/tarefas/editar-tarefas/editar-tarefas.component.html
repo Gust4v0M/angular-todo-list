@@ -14,9 +14,7 @@
       placeholder="Adicione sua atividade"
       #input
       />
-      <button class="btn btn-light" (click)="setValue()">Atualizar</button>
+      <button class="btn btn-light" (click)="atualizar()" [routerLink]="['']">Atualizar</button>
     </div>
-
-    <p >{{ task }}</p>
   </div>
 </div>

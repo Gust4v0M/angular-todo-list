@@ -10,10 +10,15 @@ export class TarefasService {
   constructor() { }
 
   setTask(task: any){
-      this.taskValue = task
+      this.taskValue = task;
+      localStorage.setItem('dados', task)
   }
 
- getTask(){
+ getTask(key: string){
+
+  localStorage.getItem([key])
+
+
     return this.taskValue
   }
 }

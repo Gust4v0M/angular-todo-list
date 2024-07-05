@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule,  } from '@angular/forms';
 import { TarefasService } from './tarefas.service';
 
@@ -7,15 +7,24 @@ import { TarefasService } from './tarefas.service';
   templateUrl: './tarefas.component.html',
   styleUrl: './tarefas.component.css'
 })
-export class TarefasComponent  {
+export class TarefasComponent implements OnInit {
 inputValue: string ='';
 tasks: string[] = [];
 valorAtual!: any;
 valorFalse = false;
 
-constructor(private forms: FormsModule,
+constructor(
+            private forms: FormsModule,
             private tarefasService: TarefasService
-){
+            )
+            {  }
+
+ngOnInit(){
+  this.novaFunc()
+}
+
+novaFunc(){
+  const armazenarDados = this.tarefasService.getTask([this.tasks])
 
 }
 
@@ -23,6 +32,10 @@ addTask(){
   this.tasks.push(this.inputValue);
   console.log("task " + this.tasks)
   console.log("Input value " + this.inputValue)
+}
+
+saveTask(){
+  this.tarefasService.setTask(this.tasks)
 }
 
 removeTask(task: string){
