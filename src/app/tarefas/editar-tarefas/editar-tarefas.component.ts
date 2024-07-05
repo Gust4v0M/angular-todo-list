@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { TarefasService } from '../tarefas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-tarefas',
@@ -7,12 +8,14 @@ import { TarefasService } from '../tarefas.service';
   styleUrl: './editar-tarefas.component.css',
 })
 export class EditarTarefasComponent implements OnInit {
-  @Input() task!: string;
+  @Input() task!: string| null;
   @ViewChild('input') input!: ElementRef;
 
-  constructor(private tarefasService: TarefasService){ }
+  constructor(private tarefasService: TarefasService,
+              private router: Router
+  ){ }
  ngOnInit() {
-   // this.task = this.tarefasService.getTask();
+   this.task = this.tarefasService.getTask();
   }
 
   ngAfterViewInit() {
@@ -22,12 +25,13 @@ export class EditarTarefasComponent implements OnInit {
   }
 
   atualizar() {
-    const input: HTMLInputElement = this.input.nativeElement;
+    const input = this.input.nativeElement;
 
-   // this.task = this.tarefasService.getTask();
-    
-    input.value = this.task;
-
+    if(this.input){
+      this.task = input
+      this.tarefasService.setTasks(input)
+      this.router.navigate([''])
+    }
 
   }
 

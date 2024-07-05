@@ -9,7 +9,7 @@ import { TarefasService } from './tarefas.service';
 })
 export class TarefasComponent implements OnInit {
 inputValue: string ='';
-tasks: string[] = [];
+tasks: string[] = []
 valorAtual!: any;
 valorFalse = false;
 
@@ -20,22 +20,19 @@ constructor(
             {  }
 
 ngOnInit(){
-  this.novaFunc()
+  //this.tarefasService.getTask()
 }
 
-novaFunc(){
-  const armazenarDados = this.tarefasService.getTask([this.tasks])
-
-}
 
 addTask(){
   this.tasks.push(this.inputValue);
   console.log("task " + this.tasks)
   console.log("Input value " + this.inputValue)
+  this.saveTask()
 }
 
 saveTask(){
-  this.tarefasService.setTask(this.tasks)
+  this.tarefasService.setTasks(this.tasks )
 }
 
 removeTask(task: string){
@@ -48,10 +45,10 @@ removeTask(task: string){
 }
 
 
-taskEditavel(task: string){
-this.tarefasService.setTask(task) 
+taskEditavel(task: any){
+this.tarefasService.setTasks(task) 
 }
-}
+} 
 
 
 

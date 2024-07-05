@@ -5,20 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class TarefasService {
 
-  taskValue: string = ''
-
   constructor() { }
 
-  setTask(task: any){
-      this.taskValue = task;
-      localStorage.setItem('dados', task)
+  setTasks(task: string[]){
+      localStorage.setItem('key', JSON.stringify(task))
+
   }
+ getTask(){
 
- getTask(key: string){
+ return  localStorage.getItem('key')
 
-  localStorage.getItem([key])
-
-
-    return this.taskValue
   }
 }
