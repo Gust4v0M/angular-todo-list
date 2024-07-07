@@ -1,16 +1,10 @@
-<!-- tarefas.component.html -->
 <div class="page">
   <div class="card -bg-light mb-3 position-relative">
     <div class="header">
       <div class="titulo position-absolute top-0 start-50 translate-middle-x fs-4 text-secondary-emphasis">TO-DO LIST</div>
     </div>
     <div class="input-container">
-      <input
-        class="input"
-        type="text"
-        placeholder="Adicione sua atividade"
-        [(ngModel)]="inputValue"
-      />
+      <input class="input" type="text" placeholder="Adicione sua atividade" [(ngModel)]="inputValue" />
       <button class="btn btn-light" (click)="addTask()">add task</button>
     </div>
     <div class="atividades">
@@ -26,7 +20,7 @@
             <td>{{ task }}</td>
             <td class="actions">
               <i class="bi bi-trash" (click)="removeTask(task)"></i>
-              <i class="bi bi-pen-fill ml-2" (click)="taskEditavel(task)" [routerLink]="['/edit']"></i>
+              <i class="bi bi-pen-fill ml-2" (click)="editTask(task)" [routerLink]="['/edit']"></i>
             </td>
           </tr>
         </tbody>
